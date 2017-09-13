@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "yarn build && yarn server",
-    "dev": "yarn build:dev && yarn server && yarn bs",
+    "dev": "concurrently \"yarn build:dev\" \"yarn server\" \"yarn bs\"",
     "build": "webpack --config ./configs/webpack.config.js",
     "build:dev": "webpack --config ./configs/webpack.config.js --watch",
     "server": "node server",
@@ -17,6 +17,7 @@
   "devDependencies": {
     "browser-sync": "^2.18.13",
     "chai": "^4.1.2",
+    "concurrently": "^3.5.0",
     "jasmine-core": "^2.8.0",
     "karma": "^1.7.1",
     "karma-chai": "^0.1.0",

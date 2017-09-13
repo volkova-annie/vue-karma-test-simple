@@ -8,21 +8,17 @@ module.exports = function(config) {
     basePath: '',
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['chai', 'jasmine'],
+    frameworks: ['jasmine'],
     // репортеры необходимы для  наглядного отображения результатов
     reporters: ['mocha', 'coverage'],
     // list of files / patterns to load in the browser
     files: [
-      '*.js',
+      'static/*.js',
       'test/**/*.js'
-    ],
-    // list of files to exclude
-    exclude: [
     ],
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      './index.js': ['webpack', 'sourcemap'],
       'test/**/*.js': ['webpack', 'sourcemap']
     },
     // karma watches the test entry points
@@ -36,14 +32,9 @@ module.exports = function(config) {
     plugins: [
       'karma-jasmine', 'karma-mocha',
       'karma-chrome-launcher', 'karma-firefox-launcher',
-      'karma-chai', 'karma-coverage',
-      'karma-webpack', 'karma-phantomjs-launcher',
+      'karma-coverage', 'karma-webpack',
       'karma-mocha-reporter', 'karma-sourcemap-loader'
     ],
-    // test results reporter to use
-    // possible values: 'dots', 'progress'
-    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
     // web server port
     port: 9876,
     // enable / disable colors in the output (reporters and logs)
@@ -58,7 +49,7 @@ module.exports = function(config) {
     browsers: ['Chrome', 'Firefox'],
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity
